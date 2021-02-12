@@ -1,0 +1,88 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <img
+      style="margin-left: 37%; width: 25%"
+      class="img-responsive"
+      src="assets/images/icon.png"
+    />
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="userDetails">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input
+            formControlName="Name"
+            type="text"
+            matInput
+            placeholder="Full Name"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            formControlName="Email"
+            type="email"
+            matInput
+            placeholder="Email"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            type="text"
+            matInput
+            formControlName="Mobile"
+            placeholder="Mobile Number with country Code."
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            formControlName="Password"
+            type="password"
+            matInput
+            placeholder="Password"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Confirm Password" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            formControlName="Dob"
+            style="cursor: pointer"
+            type="date"
+            matInput
+            placeholder="Date Of Birth"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="Gender">
+            <mat-option [value]="Gender" *ngFor="let Gender of Gender"
+              >{{ Gender }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="Country">
+            <mat-option [value]="Country" *ngFor="let Country of Country"
+              >{{ Country }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+
+      <div>{{ userDetails.value | json }}</div>
+
+      <button (click)="registerUser()" class="button button1">Register</button>
+    </form>
+  </mat-card>
+</div>
