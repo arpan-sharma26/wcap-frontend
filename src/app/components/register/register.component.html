@@ -33,8 +33,10 @@
           <input
             type="text"
             matInput
+            pattern="[0-9]+"
+            minlength="10"
             formControlName="Mobile"
-            placeholder="Mobile Number with country Code."
+            placeholder="Mobile Number"
           />
         </mat-form-field>
 
@@ -42,13 +44,21 @@
           <input
             formControlName="Password"
             type="password"
+            #password
             matInput
             placeholder="Password"
+            (change)="checkCondition()"
           />
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input type="password" matInput placeholder="Confirm Password" />
+          <input
+            formControlName="confirmPassword"
+            type="password"
+            #confirmPassword
+            matInput
+            placeholder="Confirm Password"
+          />
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
@@ -82,7 +92,13 @@
 
       <div>{{ userDetails.value | json }}</div>
 
-      <button (click)="registerUser()" class="button button1">Register</button>
+      <button
+        [disabled]="userDetails.invalid"
+        (click)="registerUser()"
+        class="button button1"
+      >
+        Register
+      </button>
     </form>
   </mat-card>
 </div>
