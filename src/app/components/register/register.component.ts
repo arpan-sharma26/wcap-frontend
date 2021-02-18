@@ -1,6 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { RegisterService } from '../../register.service';
 
 @Component({
@@ -9,8 +15,9 @@ import { RegisterService } from '../../register.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  Gender: any = ['Male', 'Female', 'Other'];
-  Country: any = [
+  public blockSubmit: any;
+  public Gender: any = ['Male', 'Female', 'Other'];
+  public Country: any = [
     'Afghanistan',
     'Albania',
     'Algeria',
@@ -45,25 +52,39 @@ export class RegisterComponent implements OnInit {
     'Burundi',
   ];
 
-  userDetails!: FormGroup;
-  data: any;
+  public userDetails!: FormGroup;
+  public data: any;
 
   constructor(
     private fb: FormBuilder,
     private register: RegisterService,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private toast: ToastrService
+  ) {
+    this.formFunction();
+  }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  formFunction() {
     this.userDetails = this.fb.group({
-      Name: '',
-      Email: '',
-      Mobile: '',
-      Password: '',
-      Dob: '',
-      Gender: '',
-      Country: '',
+      Name: ['', Validators.required],
+      Email: ['', Validators.required && Validators.email],
+      Mobile: ['', Validators.required],
+      Password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      Dob: ['', Validators.required],
+      Gender: [''],
+      Country: ['', Validators.required],
     });
+  }
+
+  checkCondition() {
+    if (
+      this.userDetails.value.Password !== this.userDetails.value.confirmPassword
+    ) {
+      this.blockSubmit = false;
+    }
   }
 
   registerUser() {
@@ -71,5 +92,7 @@ export class RegisterComponent implements OnInit {
     this.register.signUp(this.data).subscribe((res) => {
       console.log(res);
     });
+    this.toast.success('You are successfully registered.');
+    console.log(this.userDetails.value.Name);
   }
 }
