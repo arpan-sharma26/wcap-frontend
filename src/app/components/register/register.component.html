@@ -11,16 +11,16 @@
 
     <form class="example-form" [formGroup]="userDetails">
       <mat-card-content>
-        <mat-form-field class="example-full-width">
+        <mat-form-field style="font-size: large;" class="example-full-width">
           <input
             formControlName="Name"
             type="text"
             matInput
-            placeholder="Full Name"
+            placeholder="FullName"
           />
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field style="font-size: large;" class="example-full-width">
           <input
             formControlName="Email"
             type="email"
@@ -29,7 +29,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field style="font-size: large;" class="example-full-width">
           <input
             type="text"
             matInput
@@ -40,7 +40,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field style="font-size: large;"class="example-full-width">
           <input
             formControlName="Password"
             type="password"
@@ -51,7 +51,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field  style="font-size: large;" class="example-full-width">
           <input
             formControlName="confirmPassword"
             type="password"
@@ -61,7 +61,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field style="font-size:large;" class="example-full-width">
           <input
             formControlName="Dob"
             style="cursor: pointer"
@@ -71,7 +71,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field style="font-size:large;" class="example-full-width">
           <mat-label>Gender</mat-label>
           <mat-select formControlName="Gender">
             <mat-option [value]="Gender" *ngFor="let Gender of Gender"
@@ -80,7 +80,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field style="font-size: large;" class="example-full-width">
           <mat-label>Country</mat-label>
           <mat-select formControlName="Country">
             <mat-option [value]="Country" *ngFor="let Country of Country"
