@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 /* Routing */
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 
 /* Angular Material */
