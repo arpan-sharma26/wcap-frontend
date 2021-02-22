@@ -23,7 +23,9 @@ export class LogInComponent implements OnInit {
 
   onLoginSubmit() {
     console.log(this.loginForm.value);
-    this.serv.authenticateUser(this.loginForm.value);
+    this.serv.authenticateUser(this.loginForm.value).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   ngOnInit(): void {}
