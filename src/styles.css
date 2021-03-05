@@ -45,7 +45,7 @@ body {
   opacity: 1;
   float: left;
   padding: 60px 50px 40px 50px;
-  width: 30%;
+  width: 70%;
   background: linear-gradient(to right, #ADA996 25%, #F2F2F2 50%,#DBDBDB 75%,#EAEAEA 100%);
   border-radius: 10px;
   transform: scale(1);
@@ -73,7 +73,7 @@ body {
   opacity: 1;
   float: left;
   padding: 60px 50px 40px 50px;
-  width: 30%;
+  width: 70%;
   background: linear-gradient(to right, #ADA996 25%, #F2F2F2 50%,#DBDBDB 75%,#EAEAEA 100%);
   border-radius: 10px;
   transform: scale(1);
