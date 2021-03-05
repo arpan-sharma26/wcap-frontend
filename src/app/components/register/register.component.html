@@ -1,19 +1,21 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
-    <h2 style="font-weight:bold;font-family: merriweather;margin-left:5%;">WCAP(We Care About Privacy)</h2>
+    <h2 style="font-weight: bold; font-family: merriweather; margin-left: 5%">
+      WCAP(We Care About Privacy)
+    </h2>
     <img
       style="margin-left: 37%; width: 25%"
       class="img-responsive"
       src="assets/images/1.gif"
     />
-    
+
     <mat-card-header>
       <mat-card-title>Register</mat-card-title>
     </mat-card-header>
 
     <form class="example-form" [formGroup]="userDetails">
       <mat-card-content>
-        <mat-form-field style="font-size: large;" class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <input
             formControlName="Name"
             type="text"
@@ -22,7 +24,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field style="font-size: large;" class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <input
             formControlName="Email"
             type="email"
@@ -31,7 +33,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field style="font-size: large;" class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <input
             type="text"
             matInput
@@ -42,7 +44,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field style="font-size: large;"class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <input
             formControlName="Password"
             type="password"
@@ -53,7 +55,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field  style="font-size: large;" class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <input
             formControlName="confirmPassword"
             type="password"
@@ -63,7 +65,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field style="font-size:large;" class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <input
             formControlName="Dob"
             style="cursor: pointer"
@@ -73,7 +75,7 @@
           />
         </mat-form-field>
 
-        <mat-form-field style="font-size:large;" class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <mat-label>Gender</mat-label>
           <mat-select formControlName="Gender">
             <mat-option [value]="Gender" *ngFor="let Gender of Gender"
@@ -82,7 +84,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field style="font-size: large;" class="example-full-width">
+        <mat-form-field style="font-size: large" class="example-full-width">
           <mat-label>Country</mat-label>
           <mat-select formControlName="Country">
             <mat-option [value]="Country" *ngFor="let Country of Country"
@@ -91,11 +93,8 @@
           </mat-select>
         </mat-form-field>
       </mat-card-content>
-
-      <div>{{ userDetails.value | json }}</div>
-
       <button
-        [disabled]="userDetails.invalid"
+        [ngClass]="{ disabled: userDetails.invalid }"
         (click)="registerUser()"
         class="button button1"
       >

@@ -1,12 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../../register.service';
 
 @Component({
@@ -58,8 +53,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private register: RegisterService,
-    private http: HttpClient,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private router: Router
   ) {
     this.formFunction();
   }
@@ -74,7 +69,7 @@ export class RegisterComponent implements OnInit {
       Password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       Dob: ['', Validators.required],
-      Gender: [''],
+      Gender: ['', Validators.required],
       Country: ['', Validators.required],
     });
   }
@@ -93,6 +88,6 @@ export class RegisterComponent implements OnInit {
       console.log(res);
     });
     this.toast.success('You are successfully registered.');
-    console.log(this.userDetails.value.Name);
+    this.router.navigate(['/login']);
   }
 }

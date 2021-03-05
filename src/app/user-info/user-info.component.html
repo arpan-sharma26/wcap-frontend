@@ -1,0 +1,16 @@
+<br /><br /><br /><br /><br /><br />
+<div *ngIf="user">
+  <h2 class="page-header">{{ user.user.name }}</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Username: {{ user.user.name }}</li>
+    <li class="list-group-item">Email: {{ user.user.email }}</li>
+    <li class="list-group-item">Birth Date: {{ user.user.birthDate }}</li>
+    <li class="list-group-item">Country: {{ user.user.country }}</li>
+    <li class="list-group-item">Gender: {{ user.user.gender }}</li>
+    <li class="list-group-item">Country: {{ user.user.mobile }}</li>
+  </ul>
+</div>
+<br /><br />
+<div class="row justify-content-center">
+  <button (click)="logout()" class="col-1 btn btn-danger">Logout</button>
+</div>
