@@ -1,4 +1,10 @@
 <br />
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
+<button
+  *ngIf="!interaction.loggedIn()"
+  [routerLink]="['/profile']"
+  routerLinkActive="router-link-active"
+>
+  Profile
+</button>
 <button class="btn btn-primary" (click)="onClickLogout()">Logout</button>
